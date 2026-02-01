@@ -1,0 +1,36 @@
+# IR Remote keylayout for SmartPi One
+# Common NEC remote codes
+
+key 28    ENTER
+key 74    VOLUME_DOWN
+key 75    VOLUME_UP
+key 77    MUTE
+key 79    MENU
+key 80    HOME
+key 81    BACK
+key 83    DPAD_UP
+key 84    DPAD_DOWN
+key 85    DPAD_LEFT
+key 86    DPAD_RIGHT
+key 87    DPAD_CENTER
+key 88    POWER
+
+# Media keys
+key 64    MEDIA_PLAY_PAUSE
+key 65    MEDIA_STOP
+key 66    MEDIA_PREVIOUS
+key 67    MEDIA_NEXT
+key 68    MEDIA_REWIND
+key 69    MEDIA_FAST_FORWARD
+
+# Number keys
+key 0     0
+key 1     1
+key 2     2
+key 3     3
+key 4     4
+key 5     5
+key 6     6
+key 7     7
+key 8     8
+key 9     9

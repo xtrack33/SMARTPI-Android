@@ -1,0 +1,23 @@
+# Android fstab file for SmartPi One (Allwinner H3)
+# <src>                                   <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
+
+# Boot partition
+/dev/block/mmcblk0p1                      /boot        emmc    defaults                                    defaults
+
+# System partition
+/dev/block/mmcblk0p2                      /system      ext4    ro,barrier=1                                wait,first_stage_mount
+
+# Vendor partition
+/dev/block/mmcblk0p3                      /vendor      ext4    ro,barrier=1                                wait,first_stage_mount
+
+# Data partition
+/dev/block/mmcblk0p4                      /data        ext4    noatime,nosuid,nodev,barrier=1,data=ordered wait,check,formattable,quota,reservedsize=128M
+
+# Cache partition
+/dev/block/mmcblk0p5                      /cache       ext4    noatime,nosuid,nodev,barrier=1,data=ordered wait,check,formattable
+
+# SD Card (external)
+/dev/block/mmcblk1p1                      /sdcard      vfat    defaults                                    voldmanaged=sdcard:auto
+
+# USB storage
+/devices/platform/soc/1c1b000.ehci1-controller/usb*    auto    auto    defaults                            voldmanaged=usb:auto

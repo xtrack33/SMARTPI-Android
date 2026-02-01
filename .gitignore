@@ -1,0 +1,4 @@
+.DS_Store
+
+# Large firmware images (keep locally, don't push)
+*.img

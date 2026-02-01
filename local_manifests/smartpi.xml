@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SmartPi Android 10 - Local Manifest
+
+    Usage:
+        mkdir smartpi-android && cd smartpi-android
+        repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r47
+        mkdir -p .repo/local_manifests
+        cp /path/to/smartpi.xml .repo/local_manifests/
+        repo sync -c -j$(nproc)
+-->
+<manifest>
+    <!-- Remotes -->
+    <remote name="glodroid" fetch="https://github.com/AW-OPEN" />
+    <remote name="nicMusic" fetch="https://github.com/nicMusic" />
+    <remote name="sunxi" fetch="https://github.com/AW-BSD" />
+    <remote name="lineage" fetch="https://github.com/AW-OPEN" />
+
+    <!-- Remove AOSP projects we'll replace -->
+    <remove-project name="platform/external/mesa3d" />
+    <remove-project name="platform/external/libdrm" />
+    <remove-project name="platform/external/minigbm" />
+
+    <!-- Allwinner H3 Kernel -->
+    <project path="kernel/allwinner/h3"
+             name="AW-BSD/linux-sunxi"
+             remote="sunxi"
+             revision="sunxi-5.4"
+             clone-depth="1" />
+
+    <!-- U-Boot for Allwinner -->
+    <project path="bootloader/u-boot"
+             name="AW-BSD/u-boot"
+             remote="sunxi"
+             revision="v2021.10-sunxi"
+             clone-depth="1" />
+
+    <!-- Mesa3D with Lima driver -->
+    <project path="external/mesa3d"
+             name="AW-OPEN/external_mesa3d"
+             remote="glodroid"
+             revision="main"
+             clone-depth="1" />
+
+    <!-- libdrm -->
+    <project path="external/libdrm"
+             name="AW-OPEN/external_libdrm"
+             remote="glodroid"
+             revision="main"
+             clone-depth="1" />
+
+    <!-- Minigbm (gralloc) -->
+    <project path="external/minigbm"
+             name="AW-OPEN/external_minigbm"
+             remote="glodroid"
+             revision="main"
+             clone-depth="1" />
+
+    <!-- DRM HWComposer -->
+    <project path="external/drm_hwcomposer"
+             name="AW-OPEN/external_drm_hwcomposer"
+             remote="glodroid"
+             revision="main"
+             clone-depth="1" />
+</manifest>

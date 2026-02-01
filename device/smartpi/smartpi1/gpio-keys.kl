@@ -1,0 +1,8 @@
+# Key layout for SmartPi One GPIO buttons
+
+key 116   POWER
+key 114   VOLUME_DOWN
+key 115   VOLUME_UP
+key 139   MENU
+key 158   BACK
+key 102   HOME

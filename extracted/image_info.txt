@@ -1,0 +1,106 @@
+=== Allwinner Image Analysis ===
+
+Source: sun8iw7p1_android_dolphin-p1_uart0.img
+Size: 632,092,672 bytes
+
+=== Version Strings ===
+                                    version_id,
+                                  live_versions,
+                                  unregistered_versions) {
+                           live_versions,
+                           unregistered_versions);
+                           version_id,
+                         mean_bg.b / mean_video.b * green_normalizer, 1.) * auto_wb_scale; 
+                     version_id,
+                   k - monitor kernel space events only
+                   k: only when the branch target is in the kernel
+                  Parse kernel symbols from <file>.
+                 the kernel. It should be a power of 2. The default value is 16.
+                 unregistered_versions: unregistered_versions,
+            <!-- profiles and levels:  ProfileMain : Level_Version0-3 -->
+            Due to Mali200 hardware issue 3558, store instructions may hang
+            Mali online shader compiler r7p0-00rel0 [Revision 96995].
+            MaliGP2 hardware revision r0p1 only supports up to %d instruction
+            Note that MaliGP2 hardware revisions r0p3 and newer do not have
+            Please contact malidevelopers@arm.com with the shader causing
+            description: 'Chrome version',
+            description: 'Driver bug list version',
+            description: 'Software rendering list version',
+            file="/system/framework/android.test.runner.jar" />
+            file="/system/framework/com.android.future.usb.accessory.jar" />
+            file="/system/framework/com.android.location.provider.jar" />
+            file="/system/framework/com.android.media.remotedisplay.jar" />
+            file="/system/framework/com.android.mediadrm.signer.jar" />
+            jsvalues=".cmdArgs:{partition_id:$partition_id,version_id:version_id}"
+            jsvalues=".partition_id:$partition_id;.version_id:$this.version_id"
+            the core in Mali200 hardware revisions r0p1 and r0p2. See the GX525
+            value: clientInfo.blacklist_version
+            value: clientInfo.driver_bug_list_version
+            value: clientInfo.version
+            version is intended to be used by a parent process with higher privileges to call 
+            version_id_set[version.version_id] = true;
+          ValidateAndNormalizeQueuingStrategy(size, highWaterMark);
+          logArea.version_id == version.version_id) {
+          logArea.version_id == version_id) {
+         VoIP may include android.hardware.audio.low_latency.xml. ONLY apps
+         android.hardware.camera.autofocus-flash.xml -->
+         android.hardware.camera.autofocus.xml or
+         android.hardware.camera.front.xml -->
+         android.hardware.sensor.light.xml -->
+         android.hardware.sensor.proximity.xml -->
+         android.hardware.touchscreen.multitouch.xml
+         android.hardware.vr.high_performance -->
+         include android.hardware.touchscreen.multitouch.distinct.xml
+         include android.hardware.touchscreen.multitouch.jazzhand.xml
+         message to disappear then you should upgrade to at least kernel
+         the kernel problem. The below web page has more information:
+         version 2.6.20, or request help from your distribution to fix
+         version is to be supported. These permissions are built-in
+        (version == 0 && numBytes == codec.kMessageHeaderSize) ||
+        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+        -o /data/user_de/0/com.android.shell/files/bugreports/remote/bugreport
+        // FIXME: Implement a correct algorithm of the Web IDL value conversion.
+        <MediaCodec name="OMX.allwinner.video.decoder.avc" type="video/avc" update="true">
+        <MediaCodec name="OMX.allwinner.video.decoder.h263" type="video/3gpp" update="true">
+        <MediaCodec name="OMX.allwinner.video.decoder.mpeg4" type="video/mp4v-es" update="true">
+        <MediaCodec name="OMX.allwinner.video.decoder.vp8" type="video/x-vnd.on2.vp8" update="true">
+        <MediaCodec name="OMX.allwinner.video.encoder.avc" type="video/avc" update="true">
+        <div transclude="serviceworker-version-template"></div>
+        <span jscontent="$this.version_id"></span>
+        <span>Version ID:</span>
+        [registration.active, registration.waiting].forEach(function(version) {
+        function buildBounds(quad)
+        jsdisplay="$this.stored_registrations.length + $this.unregistered_registrations.length + $this.unregistered_versions.length > 0">
+        logArea.value = version.log;
+        this._contentBounds = buildBounds.call(this, info.contentQuad);
+        this._marginBounds = buildBounds.call(this, info.marginQuad);
+        this._paddingBounds = buildBounds.call(this, info.paddingQuad);
+        unregistered_versions.push(version);
+       -p prop.name (default ro.build.fingerprint)
+      // Updates the original dataSeries before the conversion.
+      <!-- Upside down Android -->
+      <assemblyIdentity type="win32" name="Microsoft.VC90.CRT" version="9.0.21022.8" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"></assemblyIdentity>
+      <assemblyIdentity type="win32" name="Microsoft.VC90.MFC" version="9.0.21022.8" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"></assemblyIdentity>
+      <div class="serviceworker-item" jsselect="$this.unregistered_versions">
+      Default: $ANDROID_ROOT/system/framework/boot.art
+      Example: --android-root=out/host/linux-x86
+      Example: --dex-file=/home/build/out/system/framework/core.jar
+      Identifier: bus=0x%04x, vendor=0x%04x, product=0x%04x, version=0x%04x
+      MessageWithRequestIDBuilder;
+      Object.create(MessageBuilder.prototype);
+      Version: %u, Keepalive: %us, Flags: [Downstream %s, Loop Detection %s]
+      const normalizedStrategy =
+      finalLabel = dataConversionConfig[rawLabel].convertedName;
+      finalValue = dataConversionConfig[rawLabel].convertFunction(
+      function(offset, minNumBytes, minVersion) {
+      if (!version_id_set[version.version_id]) {
+      kernel module as root ('modprobe fuse' or 'insmod <path_to>/fuse.ko'      or insmod <path_to>/fuse.o'). Make also sure that the fuse device      exists. It's usually either /dev/fuse or /dev/misc/fuse.
+      logMessages[version_id] += message;
+      logMessages[version_id] = message;
+      this[readableStreamDefaultControllerStrategyHWM] = normalizedStrategy.highWaterMark;
+      this[readableStreamDefaultControllerStrategySize] = normalizedStrategy.size;
+      version.log = logMessages[version.version_id];
+     * Returns information about the currently running Chrome build.
+     * timestamp is *not* normalized.
+     Android Extension Pack features. -->
+     Licensed under the Apache License, Version 2.0 (the "License");

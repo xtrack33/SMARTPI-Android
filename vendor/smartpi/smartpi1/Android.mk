@@ -1,0 +1,42 @@
+# Android.mk for SmartPi One vendor blobs
+
+LOCAL_PATH := $(call my-dir)
+
+# Include prebuilt shared libraries
+include $(CLEAR_VARS)
+LOCAL_MODULE := libGLES_mali
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib/egl
+LOCAL_SRC_FILES := lib/egl/libGLES_mali.so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := arm
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libMali
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib
+LOCAL_SRC_FILES := lib/libMali.so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := arm
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := gralloc.sun8i
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib/hw
+LOCAL_SRC_FILES := lib/hw/gralloc.sun8i.so
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := hwcomposer.sun8i
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib/hw
+LOCAL_SRC_FILES := lib/hw/hwcomposer.sun8i.so
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_PREBUILT)
