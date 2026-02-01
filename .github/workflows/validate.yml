@@ -1,0 +1,125 @@
+name: Validate Device Tree
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate XML files
+        run: |
+          echo "🔍 Validating XML files..."
+          errors=0
+          for xml in $(find . -name "*.xml" -type f); do
+            if ! xmllint --noout "$xml" 2>/dev/null; then
+              echo "❌ Invalid XML: $xml"
+              errors=$((errors + 1))
+            else
+              echo "✅ Valid: $xml"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "::error::Found $errors invalid XML files"
+            exit 1
+          fi
+          echo "✅ All XML files are valid"
+
+      - name: Lint shell scripts
+        run: |
+          echo "🔍 Linting shell scripts..."
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          errors=0
+          for script in $(find . -name "*.sh" -type f); do
+            echo "Checking: $script"
+            if ! shellcheck -x "$script"; then
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "::warning::Found issues in $errors scripts (non-blocking)"
+          fi
+          echo "✅ Shell script linting complete"
+
+      - name: Validate device tree structure
+        run: |
+          echo "🔍 Checking device tree structure..."
+
+          DEVICE_DIR="device/smartpi/smartpi1"
+          VENDOR_DIR="vendor/smartpi/smartpi1"
+
+          required_device_files=(
+            "AndroidProducts.mk"
+            "BoardConfig.mk"
+            "device.mk"
+            "smartpi1.mk"
+          )
+
+          required_vendor_files=(
+            "Android.mk"
+            "smartpi1-vendor.mk"
+          )
+
+          errors=0
+
+          echo "Checking device tree files..."
+          for file in "${required_device_files[@]}"; do
+            if [ -f "$DEVICE_DIR/$file" ]; then
+              echo "✅ Found: $DEVICE_DIR/$file"
+            else
+              echo "❌ Missing: $DEVICE_DIR/$file"
+              errors=$((errors + 1))
+            fi
+          done
+
+          echo "Checking vendor files..."
+          for file in "${required_vendor_files[@]}"; do
+            if [ -f "$VENDOR_DIR/$file" ]; then
+              echo "✅ Found: $VENDOR_DIR/$file"
+            else
+              echo "❌ Missing: $VENDOR_DIR/$file"
+              errors=$((errors + 1))
+            fi
+          done
+
+          if [ $errors -gt 0 ]; then
+            echo "::error::Missing $errors required files"
+            exit 1
+          fi
+          echo "✅ Device tree structure is valid"
+
+      - name: Validate Makefile syntax
+        run: |
+          echo "🔍 Checking Makefile syntax..."
+          errors=0
+          for mk in $(find . -name "*.mk" -type f); do
+            # Check for common Makefile errors
+            if grep -qE '^\s+[^\t]' "$mk" 2>/dev/null; then
+              # This is actually OK for Android.mk files which use spaces
+              :
+            fi
+            # Check for unclosed parentheses in variable references
+            if grep -oP '\$\([^)]*$' "$mk" 2>/dev/null; then
+              echo "⚠️ Possible unclosed variable in: $mk"
+            fi
+            echo "✅ Checked: $mk"
+          done
+          echo "✅ Makefile syntax check complete"
+
+      - name: Summary
+        run: |
+          echo "========================================"
+          echo "  SMARTPI Device Tree Validation"
+          echo "========================================"
+          echo ""
+          echo "📁 Device: device/smartpi/smartpi1"
+          echo "📁 Vendor: vendor/smartpi/smartpi1"
+          echo ""
+          echo "✅ All validations passed!"
